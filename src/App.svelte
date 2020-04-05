@@ -21,6 +21,13 @@
 	const handleInput = (e) => {
 		beltClr = e.target.value;
 	};
+
+	// loops
+	let people = [
+		{ name: 'yoshi', beltClr: 'black', age: 25, id: 1 },
+		{ name: 'mario', beltClr: 'red', age: 45, id: 2 },
+		{ name: 'luigi', beltClr: 'orange', age: 35, id: 3 }
+	];
 </script>
 
 <main>
@@ -39,6 +46,22 @@
 	<input type="text" bind:value={firstName}>
 	<input type="text" bind:value={lastName}>
 	<input type="text" bind:value={beltClr}>
+
+	<!-- loops -->
+	{#each people as person (person.id)}
+		<div>
+			<h4>{person.name}</h4>
+			<p>{person.age} years old, {person.beltClr} belt!</p>
+		</div>
+	{:else}
+	<!-- if array is empty it will default to what ever is in {:else} -->
+		<p>There are no people to show!</p>
+	{/each}
+	<!-- when using each loop in svelte, we should also apply unique key to each
+		 element in array (id,in this case)
+		 which means that svelte can use that key to kep track of which DOM
+		 element is connected to which item in the array
+		 useful for manipulating data, later on -->
 </main>
 
 <style>
