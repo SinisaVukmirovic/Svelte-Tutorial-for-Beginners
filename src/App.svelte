@@ -28,6 +28,14 @@
 		{ name: 'mario', beltClr: 'red', age: 45, id: 2 },
 		{ name: 'luigi', beltClr: 'orange', age: 35, id: 3 }
 	];
+
+	// inline event handlers
+	const handleDelete = (id) => {
+		// delete the person from people array
+		people = people.filter(person => person.id != id);
+		// we have to reasign because svelte looks for reasignment, to check
+		// if something has been updated
+	};
 </script>
 
 <main>
@@ -47,11 +55,16 @@
 	<input type="text" bind:value={lastName}>
 	<input type="text" bind:value={beltClr}>
 
+	<hr>
+
 	<!-- loops -->
 	{#each people as person (person.id)}
 		<div>
 			<h4>{person.name}</h4>
 			<p>{person.age} years old, {person.beltClr} belt!</p>
+			<button on:click={() => handleDelete(person.id)}>Delete</button>
+			<!-- to prevent automatically invoked function, we wrap that function
+			in an inline function, which is not automatically invoked when the code runs -->
 		</div>
 	{:else}
 	<!-- if array is empty it will default to what ever is in {:else} -->
