@@ -1,7 +1,19 @@
 <script>
-	let name = 'Yoshi';
+	// let name = 'Yoshi';
 	let beltClr = 'black';
 
+	let firstName = 'Jimmy';
+	let lastName = 'Handrix';
+
+	// reactive value
+	$: fullName = `${firstName} ${lastName}`;
+
+	$: {
+		console.log(beltClr);
+		console.log(fullName);
+	}
+
+	// event handlers
 	const handleClick = () => {
 		beltClr = 'red';
 	};
@@ -12,15 +24,20 @@
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p style="color:{beltClr}">{beltClr} belt!</p>
+	<!-- <h1>Hello {name}!</h1> -->
+	<!-- <p style="color:{beltClr}">{beltClr} belt!</p> -->
+	<!-- <p>{firstName} {lastName} - {beltClr} belt!</p> -->
+	<!-- using reactive value -->
+	<p>{fullName} - {beltClr} belt!</p>
 
-	<button on:click={handleClick}>Update belt color</button>
+	<!-- <button on:click={handleClick}>Update belt color</button> -->
 
 	<!-- two way data binding -->
 	<!-- <input type="text" on:input={handleInput} value={beltClr}> -->
 
 	<!-- shorthand way of doing the above -->
+	<input type="text" bind:value={firstName}>
+	<input type="text" bind:value={lastName}>
 	<input type="text" bind:value={beltClr}>
 </main>
 
