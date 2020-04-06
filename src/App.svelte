@@ -36,6 +36,9 @@
 		// we have to reasign because svelte looks for reasignment, to check
 		// if something has been updated
 	};
+
+	// conditionals
+	let num = -5;
 </script>
 
 <main>
@@ -61,6 +64,10 @@
 	{#each people as person (person.id)}
 		<div>
 			<h4>{person.name}</h4>
+			<!-- conditional -->
+			{#if person.beltClr === 'black'}
+				<p><strong>MASTER NINJA</strong></p>
+			{/if}
 			<p>{person.age} years old, {person.beltClr} belt!</p>
 			<button on:click={() => handleDelete(person.id)}>Delete</button>
 			<!-- to prevent automatically invoked function, we wrap that function
@@ -75,6 +82,16 @@
 		 which means that svelte can use that key to kep track of which DOM
 		 element is connected to which item in the array
 		 useful for manipulating data, later on -->
+
+	<hr>
+	<!-- conditionals -->
+	{#if num > 20}
+		<p>Num is greater than 20!</p>
+	{:else if num > 5}
+		<p>Num is greater than 5!</p>
+	{:else}
+		<p>Num is not greater than 5!</p>
+	{/if}
 </main>
 
 <style>
