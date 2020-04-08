@@ -44,6 +44,9 @@
 	let num = -5;
 </script>
 
+<!-- components -->
+<Modal />
+
 <main>
 	<!-- <h1>Hello {name}!</h1> -->
 	<!-- <p style="color:{beltClr}">{beltClr} belt!</p> -->
@@ -96,10 +99,6 @@
 		<p>Num is not greater than 5!</p>
 	{/if}
 
-	<hr>
-
-	<!-- components -->
-	<Modal />
 </main>
 
 <style>
