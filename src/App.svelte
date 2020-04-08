@@ -45,7 +45,8 @@
 </script>
 
 <!-- components -->
-<Modal />
+<!-- and props -->
+<Modal propsMsg="Hey, I am a prop value!" isPromotion={true}/>
 
 <main>
 	<!-- <h1>Hello {name}!</h1> -->

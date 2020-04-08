@@ -2,14 +2,22 @@
     let showModal = true;
 
     // conditional clas for conditional styles
-    let isPromotion = true;
+    // let isPromotion = true;
+
+    // props
+    export let propsMsg;
+    export let isPromotion = false;
+    // to pass prop from outside of this component we must export it
+    // export let propsMsg = 'Default value';
+    // default value can alse be given
 </script>
 
 <!-- === MOCK UP === -->
 {#if showModal}
     <div class="backdrop" class:promotion={isPromotion}>
         <div class="modal">
-            <p>Sign Up for offers!</p>
+            <!-- passing prop from another component -->
+            <p>{propsMsg}</p>
         </div>
     </div>
 {/if}
