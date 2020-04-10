@@ -116,6 +116,8 @@
 	<hr>
 
 	<button on:click={toggleModal}>Show Modal</button>
+	<!-- open modal button that works only once with event modifier -->
+	<button on:click|once={toggleModal}>Show Modal Once</button>
 
 </main>
 
