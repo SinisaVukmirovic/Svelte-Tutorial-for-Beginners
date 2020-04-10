@@ -1,7 +1,7 @@
 <script>
     export let showModal = false;
 
-    // conditional clas for conditional styles
+    // conditional class for conditional styles
     // let isPromotion = true;
 
     // props

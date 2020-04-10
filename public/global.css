@@ -70,6 +70,7 @@ button:focus {
 body {
 	color: #ddd;
 	background-color: #333;
+	font-family: sans-serif;
 	margin: 0;
 	padding: 0;
 }

@@ -62,6 +62,7 @@
 															shorthand {showModal}-->
 
 <main>
+	<h2>reactive values & binding values/two way data binding</h2>
 	<!-- <h1>Hello {name}!</h1> -->
 	<!-- <p style="color:{beltClr}">{beltClr} belt!</p> -->
 	<!-- <p>{firstName} {lastName} - {beltClr} belt!</p> -->
@@ -79,7 +80,7 @@
 	<input type="text" bind:value={beltClr}>
 
 	<hr>
-
+	<h2>loops & conditionals & event handlers</h2>
 	<!-- loops -->
 	{#each people as person (person.id)}
 		<div>
@@ -99,11 +100,12 @@
 	{/each}
 	<!-- when using each loop in svelte, we should also apply unique key to each
 		 element in array (id,in this case)
-		 which means that svelte can use that key to kep track of which DOM
+		 which means that svelte can use that key to keep track of which DOM
 		 element is connected to which item in the array
 		 useful for manipulating data, later on -->
 
 	<hr>
+	<h2>conditionals</h2>
 	<!-- conditionals -->
 	{#if num > 20}
 		<p>Num is greater than 20!</p>
@@ -114,6 +116,7 @@
 	{/if}
 
 	<hr>
+	<h2>events & props & conditional styles & event forwarding and event modifiers</h2>
 
 	<button on:click={toggleModal}>Show Modal</button>
 	<!-- open modal button that works only once with event modifier -->
@@ -135,6 +138,10 @@
 		font-size: 4em;
 		font-weight: 100;
 	} */
+
+	h2 {
+		color: cornflowerblue;
+	}
 
 	@media (min-width: 640px) {
 		main {
