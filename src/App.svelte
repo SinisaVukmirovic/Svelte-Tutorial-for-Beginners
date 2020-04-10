@@ -42,11 +42,24 @@
 
 	// conditionals
 	let num = -5;
+
+	// event forwarding
+	let showModal = false;
+
+	const toggleModal = () => {
+		showModal = !showModal;
+	};
 </script>
 
 <!-- components -->
 <!-- and props -->
-<Modal propsMsg="Hey, I am a prop value!" isPromotion={true}/>
+<!-- <Modal propsMsg="Hey, I am a prop value!" isPromotion={true} showModal={showModal}/> -->
+																	   <!-- event forwarding -->
+<Modal propsMsg="Hey, I am a prop value!" isPromotion={true} {showModal} on:click={toggleModal}/>
+														<!-- when prop name and 
+															value variable name
+															are the same, we can use 
+															shorthand {showModal}-->
 
 <main>
 	<!-- <h1>Hello {name}!</h1> -->
@@ -99,6 +112,10 @@
 	{:else}
 		<p>Num is not greater than 5!</p>
 	{/if}
+
+	<hr>
+
+	<button on:click={toggleModal}>Show Modal</button>
 
 </main>
 

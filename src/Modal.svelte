@@ -1,5 +1,5 @@
 <script>
-    let showModal = true;
+    export let showModal = false;
 
     // conditional clas for conditional styles
     // let isPromotion = true;
@@ -14,7 +14,11 @@
 
 <!-- === MOCK UP === -->
 {#if showModal}
-    <div class="backdrop" class:promotion={isPromotion}>
+    <div class="backdrop" class:promotion={isPromotion} on:click>
+                                                    <!-- not defining on click event here
+                                                    means that we want to "event forward" it
+                                                    onto the parent element that is 
+                                                    using this components -->
         <div class="modal">
             <!-- passing prop from another component -->
             <p>{propsMsg}</p>
