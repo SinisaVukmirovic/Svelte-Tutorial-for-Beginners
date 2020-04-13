@@ -16,6 +16,9 @@
     // once - makes sure that event can only fire once (removes handler)
     // preventDefault - prevent the default action
     // self - only fires the event if the clicked element is the target
+
+    // slots/named slots & forms
+    export let showFormModal = false;
 </script>
 
 <!-- === MOCK UP === -->
@@ -35,6 +38,17 @@
     </div>
 {/if}
 
+{#if showFormModal}
+    <div class="backdrop" on:click|self>
+        <div class="modal">
+            <!-- named slot -->
+            <slot name="details"></slot>
+
+            <slot></slot>
+        </div>
+    </div>
+{/if}
+
 <style>
     .backdrop {
         position: fixed;
@@ -46,10 +60,10 @@
     .modal {
         padding: 10px;
         border-radius: 10px;
-        max-width: 400px;
+        max-width: 500px;
         margin: 10% auto;
         text-align: center;
-        background: coral;
+        background: royalblue;
         border: 4px solid #eee;
     }
 

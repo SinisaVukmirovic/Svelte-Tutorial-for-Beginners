@@ -49,6 +49,13 @@
 	const toggleModal = () => {
 		showModal = !showModal;
 	};
+
+	// slots and forms
+	let showFormModal = false;
+
+	const toggleFormModal= () => {
+		showFormModal = !showFormModal;
+	};
 </script>
 
 <!-- components -->
@@ -61,8 +68,25 @@
 															are the same, we can use 
 															shorthand {showModal}-->
 
+<!-- slots and forms -->
+<Modal {showFormModal} on:click={toggleFormModal}>
+	<h3>Add a new person</h3>
+
+	<form>
+		<input type="text" placeholder="Name">
+		<input type="text" placeholder="Belt color">
+
+		<button>Add person</button>
+	</form>
+
+	<!-- named slots -->
+	<div slot="details">
+		<h5>Add a new Ninja and his belt color!</h5>
+	</div>
+</Modal>
+
 <main>
-	<h2>reactive values & binding values/two way data binding</h2>
+	<h2>reactive values | binding values/two way data binding</h2>
 	<!-- <h1>Hello {name}!</h1> -->
 	<!-- <p style="color:{beltClr}">{beltClr} belt!</p> -->
 	<!-- <p>{firstName} {lastName} - {beltClr} belt!</p> -->
@@ -80,7 +104,7 @@
 	<input type="text" bind:value={beltClr}>
 
 	<hr>
-	<h2>loops & conditionals & event handlers</h2>
+	<h2>loops | conditionals | event handlers</h2>
 	<!-- loops -->
 	{#each people as person (person.id)}
 		<div>
@@ -116,11 +140,16 @@
 	{/if}
 
 	<hr>
-	<h2>events & props & conditional styles & event forwarding and event modifiers</h2>
+	<h2>events | props | conditional styles | event forwarding and event modifiers</h2>
 
 	<button on:click={toggleModal}>Show Modal</button>
 	<!-- open modal button that works only once with event modifier -->
 	<button on:click|once={toggleModal}>Show Modal Once</button>
+
+	<hr>
+	<h2>slots/named slots & forms</h2>
+
+	<button on:click={toggleFormModal}>Show Form Modal</button>
 
 </main>
 
