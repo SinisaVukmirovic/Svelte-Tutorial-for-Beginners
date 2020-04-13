@@ -1,4 +1,7 @@
 <script>
+    // forms
+    import Form from './Form.svelte';
+    
     export let showModal = false;
 
     // conditional class for conditional styles
@@ -17,8 +20,12 @@
     // preventDefault - prevent the default action
     // self - only fires the event if the clicked element is the target
 
-    // slots/named slots & forms
+    // slots/named slots
     export let showFormModal = false;
+
+    // forms
+    export let showForm = false;
+
 </script>
 
 <!-- === MOCK UP === -->
@@ -38,6 +45,7 @@
     </div>
 {/if}
 
+<!-- slots -->
 {#if showFormModal}
     <div class="backdrop" on:click|self>
         <div class="modal">
@@ -45,6 +53,15 @@
             <slot name="details"></slot>
 
             <slot></slot>
+        </div>
+    </div>
+{/if}
+
+<!-- forms -->
+{#if showForm}
+    <div class="backdrop" on:click|self>
+        <div class="modal">
+            <Form />
         </div>
     </div>
 {/if}

@@ -2,6 +2,9 @@
 	// components
 	import Modal from './Modal.svelte';
 
+	// forms
+	import Form from './Form.svelte';
+
 	// let name = 'Yoshi';
 	let beltClr = 'black';
 
@@ -50,11 +53,18 @@
 		showModal = !showModal;
 	};
 
-	// slots and forms
+	// slots
 	let showFormModal = false;
 
 	const toggleFormModal= () => {
 		showFormModal = !showFormModal;
+	};
+
+	// forms
+	let showForm = false;
+
+	const openForm= () => {
+		showForm = !showForm;
 	};
 </script>
 
@@ -68,7 +78,7 @@
 															are the same, we can use 
 															shorthand {showModal}-->
 
-<!-- slots and forms -->
+<!-- slots -->
 <Modal {showFormModal} on:click={toggleFormModal}>
 	<h3>Add a new person</h3>
 
@@ -83,6 +93,11 @@
 	<div slot="details">
 		<h5>Add a new Ninja and his belt color!</h5>
 	</div>
+</Modal>
+
+<!-- forms -->
+<Modal {showForm} on:click={openForm}>
+	<Form />
 </Modal>
 
 <main>
@@ -150,6 +165,8 @@
 	<h2>slots/named slots & forms</h2>
 
 	<button on:click={toggleFormModal}>Show Form Modal</button>
+
+	<button on:click={openForm}>Open Form</button>
 
 </main>
 
