@@ -54,10 +54,10 @@
 	};
 
 	// slots
-	let showFormModal = false;
+	let showSlotModal = false;
 
-	const toggleFormModal= () => {
-		showFormModal = !showFormModal;
+	const toggleSlotModal= () => {
+		showSlotModal = !showSlotModal;
 	};
 
 	// forms
@@ -79,15 +79,8 @@
 															shorthand {showModal}-->
 
 <!-- slots -->
-<Modal {showFormModal} on:click={toggleFormModal}>
+<Modal {showSlotModal} on:click={toggleSlotModal}>
 	<h3>Add a new person</h3>
-
-	<form>
-		<input type="text" placeholder="Name">
-		<input type="text" placeholder="Belt color">
-
-		<button>Add person</button>
-	</form>
 
 	<!-- named slots -->
 	<div slot="details">
@@ -164,7 +157,7 @@
 	<hr>
 	<h2>slots/named slots & forms</h2>
 
-	<button on:click={toggleFormModal}>Show Form Modal</button>
+	<button on:click={toggleSlotModal}>Show Form Modal</button>
 
 	<button on:click={openForm}>Open Form</button>
 

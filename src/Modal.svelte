@@ -21,7 +21,7 @@
     // self - only fires the event if the clicked element is the target
 
     // slots/named slots
-    export let showFormModal = false;
+    export let showSlotModal = false;
 
     // forms
     export let showForm = false;
@@ -46,7 +46,7 @@
 {/if}
 
 <!-- slots -->
-{#if showFormModal}
+{#if showSlotModal}
     <div class="backdrop" on:click|self>
         <div class="modal">
             <!-- named slot -->
