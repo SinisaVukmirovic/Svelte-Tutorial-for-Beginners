@@ -1,13 +1,13 @@
 <script>
+    // displatch custom event
+    import { createEventDispatcher } from 'svelte';
+    const dispatch = createEventDispatcher();
+
+    // we need to create custom event dispatch handler to forward this event to the parent component that is calling this event
+
     let formName;
     let formBeltColor;
     let formAge;
-
-    const handleSubmit = () => {
-        console.log(formName, formBeltColor, formAge);
-        // console.log(fighting, spells, agility);
-        console.log(skills);
-    };
 
     // let fighting = false;
     // let spells = false;
@@ -15,6 +15,23 @@
 
     // group values binding (same as the above but not as messy)
     let skills = [];
+
+    const handleSubmit = () => {
+        console.log(formName, formBeltColor, formAge);
+        // console.log(fighting, spells, agility);
+        console.log(skills);
+
+        const person = {
+            name: formName,
+            belt: formBeltColor,
+            age: formAge,
+            // skills: skills,
+            skills,
+            id: Math.random()
+        };
+
+        dispatch('addPerson', person);
+    };
 
 </script>
 

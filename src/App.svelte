@@ -66,6 +66,17 @@
 	const openForm= () => {
 		showForm = !showForm;
 	};
+
+	// custom event dispatch
+	const addPerson = (e) => {
+		console.log(e.detail);
+
+		const person = e.detail;
+
+		people = [person, ...people];
+
+		showForm = false;
+	};
 </script>
 
 <!-- components -->
@@ -79,7 +90,7 @@
 															shorthand {showModal}-->
 
 <!-- slots -->
-<Modal {showSlotModal} on:click={toggleSlotModal}>
+<Modal propsMsg="" {showSlotModal} on:click={toggleSlotModal}>
 	<h3>Add a new person</h3>
 
 	<!-- named slots -->
@@ -89,8 +100,9 @@
 </Modal>
 
 <!-- forms -->
-<Modal {showForm} on:click={openForm}>
-	<Form />
+<Modal propsMsg="" {showForm} on:click={openForm}>
+	<!-- utilizing custom event dispatch here on form -->
+	<Form on:addPerson={addPerson} />
 </Modal>
 
 <main>
@@ -157,7 +169,7 @@
 	<hr>
 	<h2>slots/named slots & forms</h2>
 
-	<button on:click={toggleSlotModal}>Show Form Modal</button>
+	<button on:click={toggleSlotModal}>Show Slot Modal</button>
 
 	<button on:click={openForm}>Open Form</button>
 
